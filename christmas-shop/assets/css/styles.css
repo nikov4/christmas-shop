@@ -1,0 +1,142 @@
+:root {
+  --page-width: 1440px;
+  --color-dark: #181c29;
+  --color-primary: #ff4646;
+  --color-primary-10: rgba(255, 70, 70, 0.1);
+  --color-content: #ecf3f8;
+  --color-white: white;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-dark);
+}
+
+ul {
+  list-style-type: none;
+}
+
+li.nav-item:hover {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1440px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+/* Header */
+
+.header {
+  /*padding0: 8px 12px;*/
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  max-width: 1276px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap0: 12px;
+}
+
+.logo-container {
+  display: flex;
+  padding: 8px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.nav-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-item {
+  color: var(--color-dark, #181c29);
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.nav-item {
+  color: var(--color-dark, #181c29);
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+}
+
+a,
+a.nav-link:link,
+a.nav-link:visited,
+a.nav-link:hover,
+a.nav-link:active {
+  position: relative;
+  color: var(--color-dark, #181c29);
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+a.nav-link::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  left: -20px;
+  right: -20px;
+  border-radius: 4px;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+a.nav-link:hover::before {
+  background-color: var(--color-primary-10);
+  border-radius: 12px;
+}
+
+.nav-item a:hover {
+  color: var(--color-primary);
+}
