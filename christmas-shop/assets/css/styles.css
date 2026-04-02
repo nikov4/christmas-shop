@@ -26,6 +26,15 @@ li.nav-item:hover {
   cursor: pointer;
 }
 
+p,
+h1,
+h2,
+h3,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   max-width: 1440px;
   position: relative;
@@ -38,7 +47,6 @@ li.nav-item:hover {
 /* Header */
 
 .header {
-  /*padding0: 8px 12px;*/
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -60,7 +68,7 @@ li.nav-item:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap0: 12px;
+  gap: 0px;
 }
 
 .logo-container {
@@ -139,4 +147,92 @@ a.nav-link:hover::before {
 
 .nav-item a:hover {
   color: var(--color-primary);
+}
+
+/* Hero */
+
+.section-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 8px;
+  border-radius: 20px 20px 0 0;
+  background-color: var(--color-primary, #ff4646);
+  background-image: url(../images/bg-snow.png), url(../images/bg-ball.png);
+  background-position:
+    50% 50%,
+    50% 50%;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.hero-container {
+  padding: 60px 0px;
+  max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-caption {
+  color: var(--color-white, #fff);
+  text-align: center;
+  font-family: Allura;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 24px */
+  letter-spacing: 1.2px;
+}
+
+.hero-h1 {
+  color: var(--color-white, #fff);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 48px */
+  letter-spacing: 5.76px;
+  text-transform: uppercase;
+}
+
+.hero-button {
+  display: flex;
+  padding: 20px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: var(--color-dark, #181c29);
+  border-radius: 20px;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.hero-button a {
+  color: var(--color-white, #fff);
+}
+
+.hero-button a:hover {
+  color: var(--color-dark, #181c29);
+}
+
+.hero-button:hover {
+  background-color: var(--color-white, #fff);
+}
+
+.hero-button-text {
+  color: var(--color-white, #fff);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
