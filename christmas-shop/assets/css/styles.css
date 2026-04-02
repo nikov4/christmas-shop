@@ -206,6 +206,7 @@ a.nav-link:hover::before {
   align-items: center;
   gap: 0px;
   background-color: var(--color-dark, #181c29);
+  color: var(--color-white, #fff);
   border-radius: 20px;
   transition-duration: 0.2s;
   transition-property: all;
@@ -213,15 +214,8 @@ a.nav-link:hover::before {
   transition-timing-function: ease-in-out;
 }
 
-.hero-button a {
-  color: var(--color-white, #fff);
-}
-
-.hero-button a:hover {
-  color: var(--color-dark, #181c29);
-}
-
 .hero-button:hover {
+  color: var(--color-dark, #181c29);
   background-color: var(--color-white, #fff);
 }
 
