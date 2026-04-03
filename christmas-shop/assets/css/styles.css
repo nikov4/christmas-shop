@@ -5,6 +5,7 @@
   --color-primary-10: rgba(255, 70, 70, 0.1);
   --color-content: #ecf3f8;
   --color-white: white;
+  --color-white-40: rgba(255, 255, 255, 0.4);
 }
 
 html {
@@ -266,7 +267,6 @@ a.nav-link:hover::before {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  align-self0: center;
   gap: 20px;
 }
 
@@ -317,4 +317,148 @@ a.nav-link:hover::before {
   font-style: normal;
   font-weight: 400;
   line-height: 148%; /* 23.68px */
+}
+
+/* Slider */
+
+.section-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 0;
+  background-color: var(--color-primary, #ff4646);
+  background-image: url(../images/bg-snow.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.slider-container {
+  margin: 0 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.slider-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.slider-header-caption {
+  color: var(--color-white, #fff);
+  font-family: Allura;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 24px */
+  letter-spacing: 1.2px;
+}
+
+.slider-header-h2 {
+  color: var(--color-white, #fff);
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 152%; /* 36.48px */
+  letter-spacing: 3.84px;
+  text-transform: uppercase;
+}
+
+.slider-items-container {
+  padding: 0 84px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.slider-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.slider-item-caption {
+  color: var(--color-white, #fff);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.slider-item-image {
+  width: 200px;
+  height: 200px;
+}
+
+.slider-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.slider-controls {
+  padding: 0 82px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: flex-end;
+  gap: 20px;
+}
+
+.slider-button {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.slider-button-active {
+  border: 1px solid var(--color-white, #fff);
+  cursor: pointer;
+}
+
+.slider-button-active:hover {
+  background-color: var(--color-white, #fff);
+  border: 1px solid var(--color-white, #fff);
+}
+
+.slider-button-active:hover svg {
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.slider-button-active:hover svg path {
+  stroke: var(--color-primary, #ff4646);
+}
+
+.slider-button-passive {
+  border: 1px solid var(--color-white-40, rgba(255, 255, 255, 0.4));
+  stroke: var(--color-white-40, rgba(255, 255, 255, 0.4));
 }
