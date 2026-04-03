@@ -288,7 +288,7 @@ a.nav-link:hover::before {
   height: 528px;
 }
 
-.about-caption {
+.about-content-caption {
   align-self: start;
   color: var(--color-primary, #ff4646);
   font-family: Allura;
@@ -299,7 +299,7 @@ a.nav-link:hover::before {
   letter-spacing: 1.2px;
 }
 
-.about-h2 {
+.about-content-h2 {
   color: var(--color-dark, #181c29);
   font-family: Montserrat;
   font-size: 24px;
@@ -310,7 +310,7 @@ a.nav-link:hover::before {
   text-transform: uppercase;
 }
 
-.about-text {
+.about-content-text {
   color: var(--color-dark, #181c29);
   font-family: Montserrat;
   font-size: 16px;
