@@ -146,9 +146,14 @@ a.nav-link::before {
   transition-timing-function: ease-in-out;
 }
 
-a.nav-link:hover::before {
+a.nav-link:hover::before,
+.nav-link-passive {
   background-color: var(--color-primary-10);
   border-radius: 12px;
+}
+
+li.nav-link-passive:hover {
+  cursor: default;
 }
 
 .nav-item a:hover {
@@ -904,3 +909,5 @@ a.nav-link:hover::before {
 .contacts-caption:hover a {
   color: var(--color-primary, #ff4646);
 }
+
+/* Gifts */
