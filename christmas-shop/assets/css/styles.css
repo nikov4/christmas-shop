@@ -617,7 +617,8 @@ a.nav-link:hover::before {
 /* CTA */
 
 .section-cta {
-  padding: 60px 8px;
+  padding: 120px 8px;
+  /*padding: 60px 8px;*/
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -666,6 +667,7 @@ a.nav-link:hover::before {
 }
 
 .cta-button {
+  margin-top: -2px;
   display: flex;
   padding: 20px 32px;
   justify-content: center;
@@ -771,6 +773,7 @@ a.nav-link:hover::before {
 }
 
 .contact-item {
+  margin-top: 2px;
   height: 204px;
   display: flex;
   flex-direction: column;
