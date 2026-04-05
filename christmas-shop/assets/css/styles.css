@@ -220,7 +220,7 @@ li.nav-link-passive:hover {
   background-color: var(--color-dark, #181c29);
   color: var(--color-white, #fff);
   border-radius: 20px;
-  transition-duration: 0.2s;
+  transition-duration: 0.3s;
   transition-property: all;
   transition-delay: 0.1s;
   transition-timing-function: ease-in-out;
@@ -682,7 +682,7 @@ li.nav-link-passive:hover {
   background-color: var(--color-dark, #181c29);
   color: var(--color-white, #fff);
   border-radius: 20px;
-  transition-duration: 0.2s;
+  transition-duration: 0.3s;
   transition-property: all;
   transition-delay: 0.1s;
   transition-timing-function: ease-in-out;
