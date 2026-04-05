@@ -20,7 +20,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-dark);
+  background: var(--color-dark, #181c29);
 }
 
 ul {
@@ -149,7 +149,7 @@ a.nav-link::before {
 
 a.nav-link:hover::before,
 .nav-link-passive {
-  background-color: var(--color-primary-10);
+  background-color: var(--color-primary-10, rgba(255, 70, 70, 0.1));
   border-radius: 12px;
 }
 
@@ -158,7 +158,7 @@ li.nav-link-passive:hover {
 }
 
 .nav-item a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary, #ff4646);
 }
 
 /* Hero */
