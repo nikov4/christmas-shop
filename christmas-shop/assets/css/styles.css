@@ -944,6 +944,7 @@ li.nav-link-passive:hover {
   flex-direction: row;
   justify-content: center;
   align-self: flex-end;
+  gap: 0px;
 }
 
 .gifts-header-h1 {
@@ -970,7 +971,8 @@ li.nav-link-passive:hover {
 }
 
 .gifts-tabs-items {
-  padding: 24px 0px;
+  padding-top: 24px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1001,4 +1003,55 @@ button.tab-active,
 button.gifts-tab:hover {
   background-color: var(--color-white-20, rgba(255, 255, 255, 0.2));
   border-radius: 12px;
+}
+
+.card-items-wrapper {
+  width: 100%;
+  padding-bottom: 60px;
+  padding: auto;
+  background-color: var(--color-primary, #ff4646);
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.card-item {
+  max-width: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  gap: 0px;
+  background-color: var(--color-content, #ecf3f8);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card-item-image {
+  width: 310px;
+  height: 230px;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.card-item-caption {
+  width: 100%;
+  padding: 20px 20px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  gap: 8px;
+  background-color: var(--color-white, #fff);
+  border-radius: 20px;
 }
