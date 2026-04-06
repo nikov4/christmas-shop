@@ -148,12 +148,12 @@ a.nav-link::before {
 }
 
 a.nav-link:hover::before,
-.nav-link-passive {
+.nav-link-active {
   background-color: var(--color-primary-10, rgba(255, 70, 70, 0.1));
   border-radius: 12px;
 }
 
-li.nav-link-passive:hover {
+li.nav-link-active:hover {
   cursor: default;
 }
 
