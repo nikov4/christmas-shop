@@ -8,6 +8,10 @@
   .burger-button-container {
     display: block;
   }
+
+  .logo-container {
+    margin-left: 8px;
+  }
 }
 
 /* mobile */
