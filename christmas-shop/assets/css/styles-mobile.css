@@ -1,0 +1,11 @@
+/* burger */
+
+@media (max-width: 768px) {
+  .nav-links-container {
+    display: none;
+  }
+
+  .burger-button-container {
+    display: block;
+  }
+}
