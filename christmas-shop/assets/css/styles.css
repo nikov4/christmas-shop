@@ -183,6 +183,10 @@ a.nav-link:hover::before,
   border-radius: 12px;
 }
 
+.nav-link-active {
+  color: var(--color-primary, #ff4646);
+}
+
 li.nav-link-active:hover {
   cursor: default;
 }
@@ -989,6 +993,10 @@ button.tab-active,
 button.gifts-tab:hover {
   background-color: var(--color-white-20, rgba(255, 255, 255, 0.2));
   border-radius: 12px;
+}
+
+button.tab-active {
+  cursor: default;
 }
 
 .card-items-wrapper {
