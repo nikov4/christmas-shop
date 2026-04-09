@@ -12,6 +12,13 @@
   .logo-container {
     margin-left: 8px;
   }
+
+  .slider-items-container {
+    padding: 0 8px;
+  }
+  .slider-controls {
+    padding: 0 8px;
+  }
 }
 
 /* tablet */
