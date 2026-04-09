@@ -346,7 +346,7 @@ li.nav-link-active:hover {
 }
 
 .about-container {
-  margin: 0 60px;
+  /*margin: 0 60px;*/
   max-width: 1276px;
   width: 100%;
   display: flex;
@@ -359,7 +359,7 @@ li.nav-link-active:hover {
 }
 
 .about-content-container {
-  padding: 0 60px;
+  padding: 0 0 0 60px;
   max-width: 540px;
   display: flex;
   flex-direction: column;
@@ -369,9 +369,10 @@ li.nav-link-active:hover {
 }
 
 .about-image-container {
-  max-width: 638px;
+  /*max-width: 638px;*/
   background-image: url(../images/santa.png);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
   display: flex;
@@ -382,6 +383,7 @@ li.nav-link-active:hover {
 }
 
 .about-image {
+  max-width: calc((100vw - 14px) / 2);
   width: 638px;
   height: 528px;
 }
