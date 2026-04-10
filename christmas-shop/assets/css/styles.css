@@ -972,7 +972,7 @@ li.nav-link-active:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  gap: 0;
 }
 
 .gifts-header-container {
@@ -989,7 +989,7 @@ li.nav-link-active:hover {
   flex-direction: row;
   justify-content: center;
   align-self: flex-end;
-  gap: 0px;
+  gap: 0;
 }
 
 .gifts-header-h1 {
@@ -1011,7 +1011,7 @@ li.nav-link-active:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  gap: 0;
   background-color: var(--color-primary, #ff4646);
 }
 
@@ -1074,7 +1074,7 @@ button.tab-active {
   justify-content: flex-start;
   align-items: flex-start;
   align-content: center;
-  gap: 0px;
+  gap: 0;
   background-color: var(--color-content, #ecf3f8);
   border-radius: 20px;
   cursor: pointer;
