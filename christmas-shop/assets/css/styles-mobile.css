@@ -1,4 +1,4 @@
-/* Burger */
+/* burger */
 
 @media (max-width: 768px) {
   .nav-links-container {
@@ -12,18 +12,40 @@
   .logo-container {
     margin-left: 8px;
   }
+}
 
-  .slider-items-container {
-    padding: 0 8px;
+/* desktop */
+
+@media (max-width: 1292px) {
+  .contacts-items-container {
+    max-width: calc(100vw - 16px);
   }
-  .slider-controls {
-    padding: 0 8px;
+}
+
+@media (max-width: 920px) {
+  .contacts-items-container {
+    margin-top: 2px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contact-item {
+    margin-top: 0px;
+    align-self: center;
+    width: calc(100vw - 16px);
   }
 }
 
 /* tablet */
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 768px) {
+  .slider-items-container {
+    padding: 0 8px;
+  }
+
+  .slider-controls {
+    padding: 0 8px;
+  }
 }
 
 @media (max-width: 654px) {
