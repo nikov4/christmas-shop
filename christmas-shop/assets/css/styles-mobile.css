@@ -30,7 +30,7 @@
   }
 
   .contact-item {
-    margin-top: 0px;
+    margin-top: 0;
     align-self: center;
     width: calc(100vw - 16px);
   }
@@ -89,7 +89,7 @@
 
   .gifts-header-container {
     height: 100%;
-    padding: 60px 16px 0px 16px;
+    padding: 60px 16px 0 16px;
     flex-wrap: wrap;
   }
 }
