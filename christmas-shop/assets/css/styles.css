@@ -80,6 +80,59 @@ ul {
   text-transform: uppercase;
 }
 
+/* Burger */
+
+.burger-container {
+  display: none;
+}
+
+.burger-button-container {
+  display: none;
+  margin-right: 8px;
+}
+
+.burger-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.burger-line {
+  align-self: center;
+  width: 20px;
+  height: 1px;
+  background-color: var(--color-dark, #181c29);
+}
+
+.burger-line-top,
+.burger-line-bottom {
+  position: absolute;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.burger-line-top {
+  top: 15px;
+}
+
+.burger-line-bottom {
+  top: 23px;
+}
+
+.burger-active .burger-line-top {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.burger-active .burger-line-bottom {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
 /* Header */
 
 .header {
@@ -293,7 +346,7 @@ li.nav-link-active:hover {
 }
 
 .about-container {
-  margin: 0 60px;
+  /*margin: 0 60px;*/
   max-width: 1276px;
   width: 100%;
   display: flex;
@@ -306,7 +359,7 @@ li.nav-link-active:hover {
 }
 
 .about-content-container {
-  padding: 0 60px;
+  padding: 0 0 0 60px;
   max-width: 540px;
   display: flex;
   flex-direction: column;
@@ -316,9 +369,10 @@ li.nav-link-active:hover {
 }
 
 .about-image-container {
-  max-width: 638px;
+  /*max-width: 638px;*/
   background-image: url(../images/santa.png);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
   display: flex;
@@ -329,6 +383,7 @@ li.nav-link-active:hover {
 }
 
 .about-image {
+  max-width: calc((100vw - 14px) / 2);
   width: 638px;
   height: 528px;
 }
