@@ -92,4 +92,13 @@
     padding: 60px 16px 0 16px;
     flex-wrap: wrap;
   }
+
+  .gifts-tab {
+    padding: 12px 8px;
+  }
+
+  .gifts-tabs-items {
+    padding-top: 20px;
+    gap: 0px;
+  }
 }

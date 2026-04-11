@@ -1067,6 +1067,21 @@ button.tab-active {
   align-content: center;
 }
 
+.card-item-caption {
+  width: 100%;
+  padding: 20px 20px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  gap: 9px;
+  background-color: var(--color-white, #fff);
+  border-radius: 20px;
+}
+
+/*
 .card-item {
   max-width: 310px;
   display: flex;
@@ -1091,16 +1106,5 @@ button.tab-active {
   border-radius: 20px;
 }
 
-.card-item-caption {
-  width: 100%;
-  padding: 20px 20px;
-  height: 112px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: center;
-  gap: 8px;
-  background-color: var(--color-white, #fff);
-  border-radius: 20px;
-}
+
+*/
