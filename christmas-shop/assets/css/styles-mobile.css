@@ -104,8 +104,8 @@
 }
 
 /* disable hover effects */
-
-@media ((hover: none) and (pointer: coarse)) or (max-width: 768px) {
+/* @media ((hover: none) and (pointer: coarse)) or (max-width: 768px) { */
+@media (hover: none) and (pointer: coarse) {
   a.nav-link:hover::before {
     background-color: transparent;
   }
