@@ -1,9 +1,4 @@
-/*
-Implementation of the Timer on the home page: +8
-    + The timer shows the correct value of the remaining days, hours, minutes, and seconds until the New Year in UTC+0: +2
-    + Leading zeros are not displayed for single-digit numbers: +2
-    ++ The timer updates every second, displaying the current remaining time with the labels days, hours, minutes, seconds (the labels must not change): +4
-*/
+// Timer
 
 let timerDays = 0;
 let timerHours = 0;
@@ -11,19 +6,15 @@ let timerMinutes = 0;
 let timerSeconds = 0;
 let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-// Timer
 function Timer() {
   // get current
   const date = new Date();
   const currentYear = date.getFullYear();
   const currentMonth = date.getMonth();
   const currentDay = date.getDate();
-  //const currentHour = date.getHours();
   const currentHour = date.getUTCHours();
   const currentMinute = date.getMinutes();
   const currentSeconds = date.getSeconds();
-
-  /* console.log("currentYear=",currentYear,"currentMonth=",currentMonth,"currentDay=",currentDay,"currentHour=",currentHour,"currentMinute=",currentMinute,"currentSeconds=",currentSeconds); */
 
   //check for leap
   const leapYearDate = new Date(currentYear, 1, 29);
