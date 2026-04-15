@@ -1001,13 +1001,13 @@ li.nav-link-active:hover {
   transition-timing-function: ease-in-out;
 }
 
-button.tab-active,
+button.tab__active,
 button.gifts-tab:hover {
   background-color: var(--color-white-20, rgba(255, 255, 255, 0.2));
   border-radius: 12px;
 }
 
-button.tab-active {
+button.tab__active {
   cursor: default;
 }
 

@@ -107,9 +107,9 @@ async function getItems(category) {
     itemsContainer.replaceChildren();
     for (let tab of tabs) {
       if (tab.dataset.value === category) {
-        tab.classList.add("tab-active");
+        tab.classList.add("tab__active");
       } else {
-        tab.classList.remove("tab-active");
+        tab.classList.remove("tab__active");
       }
     }
 
@@ -187,7 +187,7 @@ if (path === "/gifts.html") {
   // interactions with tabs
   for (let tab of tabs) {
     tab.addEventListener("click", function (event) {
-      tab.classList.add("tab-active");
+      tab.classList.add("tab__active");
       const tabSelected = event.target.getAttribute("data-value");
       getItems(tabSelected);
     });
