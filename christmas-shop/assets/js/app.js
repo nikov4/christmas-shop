@@ -50,6 +50,7 @@ function Timer() {
 // GetItems
 const jsonFile = "./assets/json/gifts.json";
 const itemsContainer = document.querySelector(".best-items-container");
+const tabs = document.querySelectorAll(".gifts-tab");
 const tags = new Map([
   ["For Work", "tag-purple"],
   ["For Health", "tag-green"],
@@ -66,7 +67,7 @@ let item = "",
   itemTag = "";
 
 // get data from json
-async function getItems(path, category) {
+async function getItems(category) {
   try {
     const response = await fetch(jsonFile);
     const data = await response.json();
@@ -83,12 +84,44 @@ async function getItems(path, category) {
         value.name,
         ";",
         categoryImg,
+        ";",
+        value.description,
       );
+      // add superpowers
+      const superpowersParams = value.superpowers;
+      for (let [superpowerKey, superpowerValue] of Object.entries(
+        superpowersParams,
+      )) {
+        giftsContent = giftsContent.concat(
+          ";",
+          superpowerKey,
+          ":",
+          superpowerValue,
+        );
+      }
+
       gifts.set(key, giftsContent);
     }
 
-    if (path === "/gifts.html") {
+    // clear items
+    itemsContainer.replaceChildren();
+    for (let tab of tabs) {
+      if (tab.dataset.value === category) {
+        tab.classList.add("tab-active");
+      } else {
+        tab.classList.remove("tab-active");
+      }
+    }
+
+    if (category) {
       // loop for category
+      for (const [key] of gifts) {
+        let giftsContent = gifts.get(key).split(";");
+        if (category === "All" || category === giftsContent[0]) {
+          // add item
+          addItem(key);
+        }
+      }
     } else {
       // loop for random
       let randomGift = 0;
@@ -101,7 +134,7 @@ async function getItems(path, category) {
         randomStr = empty.concat("-", randomGift, "-");
         if (!randomList.includes(randomStr)) {
           // create random item
-          for (const [key, value] of gifts) {
+          for (const [key] of gifts) {
             if (Number(key) === randomGift) {
               // add item
               addItem(key);
@@ -151,11 +184,19 @@ async function getItems(path, category) {
 // Detect current page
 const path = window.location.pathname;
 if (path === "/gifts.html") {
+  // interactions with tabs
+  for (let tab of tabs) {
+    tab.addEventListener("click", function (event) {
+      tab.classList.add("tab-active");
+      const tabSelected = event.target.getAttribute("data-value");
+      getItems(tabSelected);
+    });
+  }
   // Get items
+  getItems("All");
 } else {
   // Run timer
   const timerId = setInterval(Timer, 1000);
+  // Get items
+  getItems();
 }
-
-// Get items
-getItems(path);
