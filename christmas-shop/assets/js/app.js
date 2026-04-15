@@ -47,9 +47,6 @@ function Timer() {
   ).textContent = timerSeconds;
 }
 
-// Run timer
-const timerId = setInterval(Timer, 1000);
-
 // Random
 const jsonFile = "./assets/json/gifts.json";
 const itemsContainer = document.querySelector(".best-items-container");
@@ -149,5 +146,14 @@ async function getRandom() {
   }
 }
 
-// Get random
-getRandom();
+// Detect current page
+const path = window.location.pathname;
+if (path === "/gifts.html") {
+  // Get random
+  getRandom();
+} else {
+  // Run timer
+  const timerId = setInterval(Timer, 1000);
+  // Get random
+  getRandom();
+}
