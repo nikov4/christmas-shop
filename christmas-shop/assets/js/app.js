@@ -33,18 +33,10 @@ function Timer() {
   timerSeconds = 59 - currentSeconds;
 
   // set values
-  document.querySelector(
-    ".timer-items-container .timer-item .timer-days",
-  ).textContent = timerDays;
-  document.querySelector(
-    ".timer-items-container .timer-item .timer-hours",
-  ).textContent = timerHours;
-  document.querySelector(
-    ".timer-items-container .timer-item .timer-minutes",
-  ).textContent = timerMinutes;
-  document.querySelector(
-    ".timer-items-container .timer-item .timer-seconds",
-  ).textContent = timerSeconds;
+  document.querySelector(".timer-items-container .timer-item .timer-days").textContent = timerDays;
+  document.querySelector(".timer-items-container .timer-item .timer-hours").textContent = timerHours;
+  document.querySelector(".timer-items-container .timer-item .timer-minutes").textContent = timerMinutes;
+  document.querySelector(".timer-items-container .timer-item .timer-seconds").textContent = timerSeconds;
 }
 
 // GetItems
@@ -78,26 +70,11 @@ async function getItems(category) {
       categoryImg = categoryImg.toLowerCase();
       categoryImg = categoryImg.replaceAll(" ", "-");
       categoryImg = `./assets/images/gift-${categoryImg}.png`;
-      let giftsContent = empty.concat(
-        value.category,
-        ";",
-        value.name,
-        ";",
-        categoryImg,
-        ";",
-        value.description,
-      );
+      let giftsContent = empty.concat(value.category, ";", value.name, ";", categoryImg, ";", value.description);
       // add superpowers
       const superpowersParams = value.superpowers;
-      for (let [superpowerKey, superpowerValue] of Object.entries(
-        superpowersParams,
-      )) {
-        giftsContent = giftsContent.concat(
-          ";",
-          superpowerKey,
-          ":",
-          superpowerValue,
-        );
+      for (let [superpowerKey, superpowerValue] of Object.entries(superpowersParams)) {
+        giftsContent = giftsContent.concat(";", superpowerKey, ":", superpowerValue);
       }
 
       gifts.set(key, giftsContent);
