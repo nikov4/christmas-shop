@@ -49,3 +49,105 @@ function Timer() {
 
 // Run timer
 const timerId = setInterval(Timer, 1000);
+
+// Random
+const jsonFile = "./assets/json/gifts.json";
+const itemsContainer = document.querySelector(".best-items-container");
+const tags = new Map([
+  ["For Work", "tag-purple"],
+  ["For Health", "tag-green"],
+  ["For Harmony", "tag-pink"],
+]);
+let gifts = new Map();
+const empty = "";
+
+// get data from json
+async function getRandom() {
+  try {
+    const response = await fetch(jsonFile);
+    const data = await response.json();
+
+    // create data array
+    for (let [key, value] of Object.entries(data)) {
+      let categoryImg = value.category;
+      categoryImg = categoryImg.toLowerCase();
+      categoryImg = categoryImg.replaceAll(" ", "-");
+      categoryImg = `./assets/images/gift-${categoryImg}.png`;
+      let giftsContent = empty.concat(
+        value.category,
+        ";",
+        value.name,
+        ";",
+        categoryImg,
+      );
+      gifts.set(key, giftsContent);
+    }
+
+    // loop for random
+    let randomGift = 0;
+    let randomList = "";
+    let item = "",
+      itemId = "",
+      itemImg = "",
+      img = "",
+      itemCaption = "",
+      itemName = "",
+      itemTag = "";
+    let j = 1;
+    let randomStr = "';";
+
+    for (let i = 1; j <= 4; i += 1) {
+      randomGift = Math.floor(Math.random() * gifts.size);
+      // check for duplicating number
+      randomStr = empty.concat("-", randomGift, "-");
+      if (!randomList.includes(randomStr)) {
+        // create random item
+        for (const [key, value] of gifts) {
+          if (Number(key) === randomGift) {
+            let giftsContent = value.split(";");
+
+            // item container
+            item = itemsContainer.appendChild(document.createElement("div"));
+            item.classList.add("best-item");
+
+            // item image
+            itemImg = item.appendChild(document.createElement("div"));
+            itemImg.classList.add("best-item-image");
+            img = itemImg.appendChild(document.createElement("img"));
+            img.setAttribute("src", giftsContent[2]);
+            img.setAttribute("alt", giftsContent[1]);
+            img.classList.add("best-image");
+
+            // item caption
+            itemCaption = item.appendChild(document.createElement("div"));
+            itemCaption.classList.add("best-item-caption");
+
+            // item caption tag
+            itemTag = itemCaption.appendChild(document.createElement("div"));
+            itemTag.classList.add(
+              "best-header-h4",
+              `${tags.get(giftsContent[0])}`,
+            );
+            itemTag = itemTag.appendChild(
+              document.createTextNode(giftsContent[0]),
+            );
+
+            // item caption name
+            itemName = itemCaption.appendChild(document.createElement("div"));
+            itemName.classList.add("best-header-h3");
+            itemName = itemName.appendChild(
+              document.createTextNode(giftsContent[1]),
+            );
+            randomList = randomList.concat("-", randomGift, "-", ",");
+            j++;
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error.name + ": " + error.message);
+  }
+}
+
+// Get random
+getRandom();
