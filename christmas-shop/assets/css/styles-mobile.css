@@ -72,6 +72,12 @@
     width: 364px;
   }
 
+  .modal-image img {
+    margin-top: -20px;
+    max-width: 100%;
+    height: auto;
+  }
+
   .about-content-container {
     align-self: flex-start;
     padding: 60px 40px 0 40px;
