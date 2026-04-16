@@ -68,6 +68,10 @@
     background-color: var(--color-white, #fff);
   }
 
+  .modal-container {
+    width: 364px;
+  }
+
   .about-content-container {
     align-self: flex-start;
     padding: 60px 40px 0 40px;
@@ -87,6 +91,7 @@
   .burger-items-container {
     transform: translateY(-56px);
   }
+
   .about-content-container {
     padding: 60px 20px 0 20px;
   }

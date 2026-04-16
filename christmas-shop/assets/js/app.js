@@ -1,3 +1,5 @@
+const body = document.getElementsByTagName("html")[0];
+
 // Timer
 
 let timerDays = 0;
@@ -130,6 +132,10 @@ async function getItems(category) {
       // item container
       item = itemsContainer.appendChild(document.createElement("div"));
       item.classList.add("best-item");
+      item.setAttribute("data-id", id);
+      item.addEventListener("click", () => {
+        modalShow(id);
+      });
 
       // item image
       itemImg = item.appendChild(document.createElement("div"));
@@ -155,6 +161,164 @@ async function getItems(category) {
     }
   } catch (error) {
     console.log(error.name + ": " + error.message);
+  }
+}
+
+// Show modal window
+const modalWrapper = document.querySelector(".modal-wrapper");
+const modalWindow = document.querySelector(".modal-window");
+const modalButton = document.querySelector(".modal-button");
+let modal = "",
+  modalImg = "",
+  modalCaption = "",
+  modalTag = "",
+  modalName = "",
+  modalDescription = "",
+  modalSuperpowers = "",
+  modalSp = "",
+  modalSpName = "",
+  modalSpValue = "",
+  modalSpSnowflakes = "";
+
+function modalShow(modalId) {
+  for (const [key] of gifts) {
+    if (key === modalId) {
+      modalWrapper.style.display = "block";
+      modalWindow.style.display = "block";
+      body.classList.toggle("no-scroll");
+
+      modalWrapper.addEventListener("click", function (event) {
+        modalWrapper.style.display = "none";
+        modalWindow.style.display = "none";
+        modalWindow.replaceChildren();
+        body.classList.remove("no-scroll");
+      });
+
+      modalWindow.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+      let giftsContent = gifts.get(modalId).split(";");
+      //console.log("giftsContent=", giftsContent);
+
+      // modal close button
+      let modalButtonBox = modalWindow.appendChild(document.createElement("div"));
+      modalButtonBox.classList.add("modal-button-container");
+      modalButtonBox = modalButtonBox.appendChild(document.createElement("div"));
+      modalButtonBox.classList.add("modal-button");
+      let modalButtonLine = modalButtonBox.appendChild(document.createElement("span"));
+      modalButtonLine.classList.add("modal-line", "modal-line-top");
+      modalButtonLine = modalButtonBox.appendChild(document.createElement("span"));
+      modalButtonLine.classList.add("modal-line", "modal-line-bottom");
+      /*
+      modalButton.addEventListener("click", function (event) {
+        modalWrapper.style.display = "none";
+        modalWindow.style.display = "none";
+        modalWindow.replaceChildren();
+        body.classList.remove("no-scroll");
+      });
+      */
+      // modal container
+      modal = modalWindow.appendChild(document.createElement("div"));
+      modal.classList.add("modal-container");
+
+      // modal image
+      modalImg = modal.appendChild(document.createElement("div"));
+      modalImg.classList.add("modal-image");
+      const img = modalImg.appendChild(document.createElement("img"));
+      img.setAttribute("src", giftsContent[2]);
+      img.setAttribute("alt", giftsContent[1]);
+      //img.classList.add("modal-image");
+
+      // modal caption
+      modalCaption = modal.appendChild(document.createElement("div"));
+      modalCaption.classList.add("modal-caption");
+
+      // modal caption tag
+      modalTag = modalCaption.appendChild(document.createElement("div"));
+      modalTag.classList.add("best-header-h4", `${tags.get(giftsContent[0])}`);
+      modalTag = modalTag.appendChild(document.createTextNode(giftsContent[0]));
+
+      // modal caption name
+      modalName = modalCaption.appendChild(document.createElement("div"));
+      modalName.classList.add("best-header-h3");
+      modalName = modalName.appendChild(document.createTextNode(giftsContent[1]));
+
+      // modal caption description
+      modalDescription = modalCaption.appendChild(document.createElement("div"));
+      modalDescription.classList.add("modal-text");
+      modalDescription = modalDescription.appendChild(document.createTextNode(giftsContent[3]));
+
+      // modal superpowers
+      modalSuperpowers = modal.appendChild(document.createElement("div"));
+      modalSuperpowers.classList.add("modal-superpowers");
+      modalSuperpowers = modalSuperpowers.appendChild(document.createElement("div"));
+      modalSuperpowers.classList.add("best-header-h4");
+      modalSuperpowers = modalSuperpowers.appendChild(document.createTextNode("Adds superpowers to:"));
+
+      // modal superpowers container
+      modalSp = modal.appendChild(document.createElement("div"));
+      modalSp.classList.add("modal-sp-container");
+
+      // SP Names container
+      modalSpName = modalSp.appendChild(document.createElement("div"));
+      modalSpName.classList.add("modal-sp-name");
+
+      let modalSpName1 = modalSpName.appendChild(document.createElement("div"));
+      modalSpName1.classList.add("modal-text");
+      modalSpName1 = modalSpName1.appendChild(document.createTextNode("Live"));
+
+      let modalSpName2 = modalSpName.appendChild(document.createElement("div"));
+      modalSpName2.classList.add("modal-text");
+      modalSpName2 = modalSpName2.appendChild(document.createTextNode("Create"));
+
+      let modalSpName3 = modalSpName.appendChild(document.createElement("div"));
+      modalSpName3.classList.add("modal-text");
+      modalSpName3 = modalSpName3.appendChild(document.createTextNode("Love"));
+
+      let modalSpName4 = modalSpName.appendChild(document.createElement("div"));
+      modalSpName4.classList.add("modal-text");
+      modalSpName4 = modalSpName4.appendChild(document.createTextNode("Dream"));
+
+      // SP Values
+      modalSpValue = modalSp.appendChild(document.createElement("div"));
+      modalSpValue.classList.add("modal-sp-value");
+
+      let modalSpValue1 = modalSpValue.appendChild(document.createElement("div"));
+      modalSpValue1.classList.add("modal-text");
+      modalSpValue1 = modalSpValue1.appendChild(document.createTextNode("+000"));
+
+      let modalSpValue2 = modalSpValue.appendChild(document.createElement("div"));
+      modalSpValue2.classList.add("modal-text");
+      modalSpValue2 = modalSpValue2.appendChild(document.createTextNode("+000"));
+
+      let modalSpValue3 = modalSpValue.appendChild(document.createElement("div"));
+      modalSpValue3.classList.add("modal-text");
+      modalSpValue3 = modalSpValue3.appendChild(document.createTextNode("+000"));
+
+      let modalSpValue4 = modalSpValue.appendChild(document.createElement("div"));
+      modalSpValue4.classList.add("modal-text");
+      modalSpValue4 = modalSpValue4.appendChild(document.createTextNode("+000"));
+
+      // SP Snowflakes container
+      modalSpSnowflakes = modalSp.appendChild(document.createElement("div"));
+      modalSpSnowflakes.classList.add("modal-sp-snowflakes");
+
+      let modalSpSnowflakes1 = modalSpSnowflakes.appendChild(document.createElement("div"));
+      modalSpSnowflakes1.classList.add("modal-text");
+      modalSpSnowflakes1 = modalSpSnowflakes1.appendChild(document.createTextNode("*****"));
+
+      let modalSpSnowflakes2 = modalSpSnowflakes.appendChild(document.createElement("div"));
+      modalSpSnowflakes2.classList.add("modal-text");
+      modalSpSnowflakes2 = modalSpSnowflakes2.appendChild(document.createTextNode("*****"));
+
+      let modalSpSnowflakes3 = modalSpSnowflakes.appendChild(document.createElement("div"));
+      modalSpSnowflakes3.classList.add("modal-text");
+      modalSpSnowflakes3 = modalSpSnowflakes3.appendChild(document.createTextNode("*****"));
+
+      let modalSpSnowflakes4 = modalSpSnowflakes.appendChild(document.createElement("div"));
+      modalSpSnowflakes4.classList.add("modal-text");
+      modalSpSnowflakes4 = modalSpSnowflakes4.appendChild(document.createTextNode("*****"));
+    }
   }
 }
 
