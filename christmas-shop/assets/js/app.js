@@ -76,9 +76,8 @@ async function getItems(category) {
       // add superpowers
       const superpowersParams = value.superpowers;
       for (let [superpowerKey, superpowerValue] of Object.entries(superpowersParams)) {
-        giftsContent = giftsContent.concat(";", superpowerKey, ":", superpowerValue);
+        giftsContent = giftsContent.concat(";", superpowerValue);
       }
-
       gifts.set(key, giftsContent);
     }
 
@@ -175,10 +174,7 @@ let modal = "",
   modalName = "",
   modalDescription = "",
   modalSuperpowers = "",
-  modalSp = "",
-  modalSpName = "",
-  modalSpValue = "",
-  modalSpSnowflakes = "";
+  modalSp = "";
 
 function modalShow(modalId) {
   for (const [key] of gifts) {
@@ -198,7 +194,6 @@ function modalShow(modalId) {
         event.stopPropagation();
       });
       let giftsContent = gifts.get(modalId).split(";");
-      //console.log("giftsContent=", giftsContent);
 
       // modal close button
       let modalButtonBox = modalWindow.appendChild(document.createElement("div"));
@@ -259,72 +254,47 @@ function modalShow(modalId) {
       modalSp = modal.appendChild(document.createElement("div"));
       modalSp.classList.add("modal-sp-container");
 
-      // SP Names container
-      modalSpName = modalSp.appendChild(document.createElement("div"));
-      modalSpName.classList.add("modal-sp-name");
-
-      let modalSpName1 = modalSpName.appendChild(document.createElement("div"));
-      modalSpName1.classList.add("modal-text");
-      modalSpName1 = modalSpName1.appendChild(document.createTextNode("Live"));
-
-      let modalSpName2 = modalSpName.appendChild(document.createElement("div"));
-      modalSpName2.classList.add("modal-text");
-      modalSpName2 = modalSpName2.appendChild(document.createTextNode("Create"));
-
-      let modalSpName3 = modalSpName.appendChild(document.createElement("div"));
-      modalSpName3.classList.add("modal-text");
-      modalSpName3 = modalSpName3.appendChild(document.createTextNode("Love"));
-
-      let modalSpName4 = modalSpName.appendChild(document.createElement("div"));
-      modalSpName4.classList.add("modal-text");
-      modalSpName4 = modalSpName4.appendChild(document.createTextNode("Dream"));
-
-      // SP Values
-      modalSpValue = modalSp.appendChild(document.createElement("div"));
-      modalSpValue.classList.add("modal-sp-value");
-
-      let modalSpValue1 = modalSpValue.appendChild(document.createElement("div"));
-      modalSpValue1.classList.add("modal-text");
-      modalSpValue1 = modalSpValue1.appendChild(document.createTextNode("+000"));
-
-      let modalSpValue2 = modalSpValue.appendChild(document.createElement("div"));
-      modalSpValue2.classList.add("modal-text");
-      modalSpValue2 = modalSpValue2.appendChild(document.createTextNode("+000"));
-
-      let modalSpValue3 = modalSpValue.appendChild(document.createElement("div"));
-      modalSpValue3.classList.add("modal-text");
-      modalSpValue3 = modalSpValue3.appendChild(document.createTextNode("+000"));
-
-      let modalSpValue4 = modalSpValue.appendChild(document.createElement("div"));
-      modalSpValue4.classList.add("modal-text");
-      modalSpValue4 = modalSpValue4.appendChild(document.createTextNode("+000"));
-
-      // SP Snowflakes container
-      modalSpSnowflakes = modalSp.appendChild(document.createElement("div"));
-      modalSpSnowflakes.classList.add("modal-sp-snowflakes");
-
-      let modalSpSnowflakes1 = modalSpSnowflakes.appendChild(document.createElement("div"));
-      modalSpSnowflakes1.classList.add("modal-text");
-      modalSpSnowflakes1 = modalSpSnowflakes1.appendChild(document.createTextNode("*****"));
-
-      let modalSpSnowflakes2 = modalSpSnowflakes.appendChild(document.createElement("div"));
-      modalSpSnowflakes2.classList.add("modal-text");
-      modalSpSnowflakes2 = modalSpSnowflakes2.appendChild(document.createTextNode("*****"));
-
-      let modalSpSnowflakes3 = modalSpSnowflakes.appendChild(document.createElement("div"));
-      modalSpSnowflakes3.classList.add("modal-text");
-      modalSpSnowflakes3 = modalSpSnowflakes3.appendChild(document.createTextNode("*****"));
-
-      let modalSpSnowflakes4 = modalSpSnowflakes.appendChild(document.createElement("div"));
-      modalSpSnowflakes4.classList.add("modal-text");
-      modalSpSnowflakes4 = modalSpSnowflakes4.appendChild(document.createTextNode("*****"));
+      // SP content
+      const modalRows = ["name", "value", "snowflakes"];
+      const modalCols = ["Live", "Create", "Love", "Dream"];
+      for (let i = 0; i <= 2; i += 1) {
+        let modalRowClass = `modal-sp-${modalRows[i]}`;
+        let modalSpRow = modalSp.appendChild(document.createElement("div"));
+        modalSpRow.classList.add(modalRowClass);
+        for (let j = 0; j <= 3; j += 1) {
+          let modalSpCol = modalSpRow.appendChild(document.createElement("div"));
+          // names
+          if (i === 0) {
+            modalSpCol.classList.add("modal-text");
+            modalSpCol = modalSpCol.appendChild(document.createTextNode(modalCols[j]));
+          }
+          // values
+          else if (i === 1) {
+            modalSpCol.classList.add("modal-text");
+            modalSpCol = modalSpCol.appendChild(document.createTextNode(`${giftsContent[j + 4]}`));
+          }
+          // snowflakes
+          else {
+            let snowflakesNumber = `${giftsContent[j + 4]}` / 100;
+            modalSpCol.classList.add("modal-snowflakes");
+            for (let k = 0; k <= 4; k += 1) {
+              let snowflake = modalSpCol.appendChild(document.createElement("div"));
+              if (k < snowflakesNumber) {
+                snowflake.classList.add("modal-snowflake");
+              } else {
+                snowflake.classList.add("modal-snowflake-white");
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
 // Detect current page
-const path = window.location.pathname;
-if (path === "/gifts.html") {
+const locationPath = window.location.pathname;
+if (locationPath === "/gifts.html") {
   // interactions with tabs
   for (let tab of tabs) {
     tab.addEventListener("click", function (event) {
