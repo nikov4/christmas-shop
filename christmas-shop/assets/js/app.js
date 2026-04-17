@@ -292,6 +292,28 @@ function modalShow(modalId) {
   }
 }
 
+// Scroll to top
+const scrollButton = document.querySelector(".scroll-to-top");
+window.addEventListener("scroll", function () {
+  let scrolled = window.scrollY || document.documentElement.scrollTop;
+  if (scrolled >= 300 && window.innerWidth <= 768) {
+    scrollButton.style.display = "flex";
+    scrollButton.addEventListener("click", (event) => {
+      window.scrollY = 0;
+      scrollButton.style.display = "none";
+      window.scrollTo(pageYOffset, 0);
+    });
+  } else {
+    scrollButton.style.display = "none";
+  }
+  // hide scroll when resize window
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 768) {
+      scrollButton.style.display = "none";
+    }
+  });
+});
+
 // Detect current page
 const locationPath = window.location.pathname;
 if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL2026Q1/christmas-shop/gifts.html") {
