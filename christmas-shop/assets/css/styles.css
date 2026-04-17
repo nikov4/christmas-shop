@@ -255,7 +255,7 @@ ul {
   margin-top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url(../images/snowflake.svg);
+  background-image: url(../icons/snowflake.svg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -264,7 +264,7 @@ ul {
 .modal-snowflake-white {
   width: 16px;
   height: 16px;
-  background: url(../images/snowflake-white.svg);
+  background: url(../icons/snowflake-white.svg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
