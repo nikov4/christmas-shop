@@ -176,12 +176,13 @@ ul {
 
 .modal-container {
   width: 400px;
+  height: 514px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: center;
   align-items: flex-start;
-  gap: 0px;
+  gap: 0;
   border-radius: 20px;
   background-color: var(--color-content, #ecf3f8);
 }
