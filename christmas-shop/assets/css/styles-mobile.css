@@ -129,6 +129,10 @@
 /* disable hover effects */
 
 @media (hover: none) and (pointer: coarse) {
+  .modal-button:hover {
+    transform: none;
+  }
+
   a.nav-link:hover::before {
     background-color: transparent;
   }
