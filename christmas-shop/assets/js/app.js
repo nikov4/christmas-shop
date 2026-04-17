@@ -204,6 +204,7 @@ function modalShow(modalId) {
       modalButtonLine.classList.add("modal-line", "modal-line-top");
       modalButtonLine = modalButtonBox.appendChild(document.createElement("span"));
       modalButtonLine.classList.add("modal-line", "modal-line-bottom");
+
       modalButtonBox.addEventListener("click", function (event) {
         modalWrapper.style.display = "none";
         modalWindow.style.display = "none";
@@ -293,7 +294,8 @@ function modalShow(modalId) {
 
 // Detect current page
 const locationPath = window.location.pathname;
-if (locationPath === "/gifts.html") {
+console.log("locationPath", locationPath);
+if (locationPath === "/gifts.html" || locationPath === "/christmas-shop/gifts.html") {
   // interactions with tabs
   for (let tab of tabs) {
     tab.addEventListener("click", function (event) {
