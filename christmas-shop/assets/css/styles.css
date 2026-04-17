@@ -150,7 +150,7 @@ ul {
 
 .modal-line {
   align-self: center;
-  width: 25px;
+  width: 30px;
   height: 2px;
   background-color: var(--color-dark, #181c29);
 }
