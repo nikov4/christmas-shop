@@ -204,14 +204,13 @@ function modalShow(modalId) {
       modalButtonLine.classList.add("modal-line", "modal-line-top");
       modalButtonLine = modalButtonBox.appendChild(document.createElement("span"));
       modalButtonLine.classList.add("modal-line", "modal-line-bottom");
-      /*
-      modalButton.addEventListener("click", function (event) {
+      modalButtonBox.addEventListener("click", function (event) {
         modalWrapper.style.display = "none";
         modalWindow.style.display = "none";
         modalWindow.replaceChildren();
         body.classList.remove("no-scroll");
       });
-      */
+
       // modal container
       modal = modalWindow.appendChild(document.createElement("div"));
       modal.classList.add("modal-container");
