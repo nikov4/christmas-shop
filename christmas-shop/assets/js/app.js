@@ -294,8 +294,7 @@ function modalShow(modalId) {
 
 // Detect current page
 const locationPath = window.location.pathname;
-console.log("locationPath", locationPath);
-if (locationPath === "/gifts.html" || locationPath === "/christmas-shop/gifts.html") {
+if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL2026Q1/christmas-shop/gifts.html") {
   // interactions with tabs
   for (let tab of tabs) {
     tab.addEventListener("click", function (event) {
