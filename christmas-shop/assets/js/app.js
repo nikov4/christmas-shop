@@ -1,14 +1,13 @@
 const body = document.getElementsByTagName("html")[0];
 
 // Timer
-
-let timerDays = 0;
-let timerHours = 0;
-let timerMinutes = 0;
-let timerSeconds = 0;
-let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
 function Timer() {
+  let timerDays = 0;
+  let timerHours = 0;
+  let timerMinutes = 0;
+  let timerSeconds = 0;
+  let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
   // get current
   const date = new Date();
   const currentYear = date.getFullYear();
@@ -314,7 +313,7 @@ window.addEventListener("scroll", function () {
   });
 });
 
-// Detect current page
+// detect current page
 const locationPath = window.location.pathname;
 if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL2026Q1/christmas-shop/gifts.html") {
   // interactions with tabs
@@ -322,14 +321,15 @@ if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL202
     tab.addEventListener("click", function (event) {
       tab.classList.add("tab__active");
       const tabSelected = event.target.getAttribute("data-value");
+      // get items by category
       getItems(tabSelected);
     });
   }
-  // Get items
+  // get all items
   getItems("All");
 } else {
-  // Run timer
+  // run timer
   const timerId = setInterval(Timer, 1000);
-  // Get items
+  // get random items
   getItems();
 }
