@@ -618,19 +618,28 @@ li.nav-link-active:hover {
   letter-spacing: 1.2px;
 }
 
-.slider-items-container {
+.slider-wrapper {
   padding: 0 84px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
   /*overflow: hidden;*/
   overflow: clip;
 }
 
+.slider-items-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 20px;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
 .slider-item {
+  width: 1993px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -681,32 +690,34 @@ li.nav-link-active:hover {
   transition-property: all;
   transition-delay: 0.1s;
   transition-timing-function: ease-in-out;
-}
-
-.slider-button-active {
   border: 1px solid var(--color-white, #fff);
   cursor: pointer;
 }
 
-.slider-button-active:hover {
-  background-color: var(--color-white, #fff);
-  border: 1px solid var(--color-white, #fff);
-}
-
-.slider-button-active:hover svg {
+.slider-button svg path {
+  stroke: var(--color-white, #fff);
   transition-duration: 0.2s;
   transition-property: all;
   transition-delay: 0.1s;
   transition-timing-function: ease-in-out;
 }
 
-.slider-button-active:hover svg path {
+.slider-button:hover {
+  background-color: var(--color-white, #fff);
+}
+
+.slider-button:hover svg path {
   stroke: var(--color-primary, #ff4646);
 }
 
-.slider-button-passive {
+.slider-button__inactive,
+.slider-button__inactive svg path,
+.slider-button__inactive:hover,
+.slider-button__inactive:hover svg path {
+  background-color: transparent;
   border: 1px solid var(--color-white-40, rgba(255, 255, 255, 0.4));
   stroke: var(--color-white-40, rgba(255, 255, 255, 0.4));
+  cursor: default;
 }
 
 /* Best */
@@ -814,7 +825,6 @@ li.nav-link-active:hover {
 
 .best-header-h3 {
   color: var(--color-dark, #181c29);
-  /*text-overflow: ellipsis;*/
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -1248,31 +1258,3 @@ button.tab__active {
   background-color: var(--color-white, #fff);
   border-radius: 20px;
 }
-
-/*
-.card-item {
-  max-width: 310px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: center;
-  gap: 0;
-  background-color: var(--color-content, #ecf3f8);
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.card-item-image {
-  width: 310px;
-  height: 230px;
-}
-
-.card-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-}
-
-
-*/

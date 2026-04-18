@@ -49,7 +49,8 @@
 /* tablet */
 
 @media (max-width: 768px) {
-  .slider-items-container {
+  /*.slider-items-container {*/
+  .slider-wrapper {
     padding: 0 8px;
   }
 
@@ -152,13 +153,13 @@
     cursor: default;
   }
 
-  .slider-button-active:hover {
+  .slider-button__active:hover {
     background-color: transparent;
     border: 1px solid var(--color-white, #fff);
     cursor: default;
   }
 
-  .slider-button-active:hover svg path {
+  .slider-button__active:hover svg path {
     border: 1px solid var(--color-white, #fff);
     stroke: var(--color-white, #fff);
   }

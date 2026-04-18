@@ -17,7 +17,7 @@ function Timer() {
   const currentMinute = date.getMinutes();
   const currentSeconds = date.getSeconds();
 
-  //check for leap
+  // check for leap
   const leapYearDate = new Date(currentYear, 1, 29);
   let leapYear = leapYearDate.getMonth();
   if (leapYear === 1) {
@@ -291,6 +291,72 @@ function modalShow(giftId) {
   }
 }
 
+// Slider
+function slider() {
+  const screenWidth = window.innerWidth;
+  let containerWidth = document.querySelector(".container").scrollWidth;
+  const sliderContainer = document.querySelector(".slider-items-container");
+  const sliderWidth = sliderContainer.scrollWidth;
+  const slides = document.querySelectorAll(".slider-item");
+  const sliderPrev = document.querySelectorAll(".slider-button")[0];
+  const sliderNext = document.querySelectorAll(".slider-button")[1];
+  let sliderMargin = 80;
+  let shiftTotal = 0;
+  let shiftCount = 0;
+  if (screenWidth > 768) {
+    shiftTotal = 3;
+  } else {
+    containerWidth = window.innerWidth;
+    sliderMargin = 16;
+    shiftTotal = 6;
+  }
+
+  // previous slide
+  sliderPrev.addEventListener("click", function () {
+    if (shiftCount > 0) {
+      shiftCount--;
+      sliderMove();
+    }
+  });
+
+  // next slide
+  sliderNext.addEventListener("click", function () {
+    if (shiftCount < shiftTotal) {
+      shiftCount++;
+      sliderMove();
+    }
+  });
+
+  // slider move
+  function sliderMove() {
+    // 1st slide
+    if (shiftCount === 0) {
+      sliderPrev.classList.add("slider-button__inactive");
+    }
+    // last slide
+    else if (shiftCount === shiftTotal) {
+      sliderNext.classList.add("slider-button__inactive");
+    }
+    // intermediate slides
+    else {
+      sliderPrev.classList.remove("slider-button__inactive");
+      sliderNext.classList.remove("slider-button__inactive");
+    }
+    const shiftSize = ((sliderWidth - containerWidth + sliderMargin * 2) / shiftTotal) * shiftCount;
+    // console.log("containerWidth=", containerWidth, "sliderWidth=", sliderWidth, "shiftTotal=", shiftTotal);
+    // console.log("shiftSize=", shiftSize, "shiftCount=", shiftCount);
+    sliderContainer.style.transform = "translateX(-" + shiftSize + "px)";
+  }
+
+  // reset slider when resize window
+  window.addEventListener("resize", function () {
+    shiftCount = 0;
+    sliderPrev.classList.add("slider-button__inactive");
+    sliderNext.classList.remove("slider-button__inactive");
+    sliderContainer.style.transform = "translateX(0px)";
+  });
+}
+
 // Scroll to top
 const scrollButton = document.querySelector(".scroll-to-top");
 window.addEventListener("scroll", function () {
@@ -305,6 +371,7 @@ window.addEventListener("scroll", function () {
   } else {
     scrollButton.style.display = "none";
   }
+
   // hide scroll button when resize window
   window.addEventListener("resize", function () {
     if (window.innerWidth > 768) {
@@ -330,6 +397,8 @@ if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL202
 } else {
   // run timer
   const timerId = setInterval(Timer, 1000);
+  // activate slider
+  slider();
   // get random items
   getItems();
 }
