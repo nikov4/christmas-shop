@@ -239,7 +239,7 @@ function modalShow(giftId) {
 
       // modal caption description
       modalDescription = modalCaption.appendChild(document.createElement("div"));
-      modalDescription.classList.add("modal-text");
+      modalDescription.classList.add("modal-description");
       modalDescription = modalDescription.appendChild(document.createTextNode(giftsContent[3]));
 
       // modal superpowers

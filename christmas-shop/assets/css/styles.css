@@ -221,6 +221,16 @@ ul {
   border-radius: 20px 20px 0 0;
 }
 
+.modal-description {
+  height: 48px;
+  color: var(--color-dark, #181c29);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 148%; /* 23.68px */
+}
+
 .modal-text {
   color: var(--color-dark, #181c29);
   font-family: Montserrat;
@@ -242,6 +252,7 @@ ul {
 }
 
 .modal-sp-container {
+  align-self: flex-end;
   width: 100%;
   padding: 10px 20px 20px 20px;
   display: flex;
