@@ -163,21 +163,21 @@ async function getItems(category) {
 }
 
 // Show modal window
-const modalWrapper = document.querySelector(".modal-wrapper");
-const modalWindow = document.querySelector(".modal-window");
-const modalButton = document.querySelector(".modal-button");
-let modal = "",
-  modalImg = "",
-  modalCaption = "",
-  modalTag = "",
-  modalName = "",
-  modalDescription = "",
-  modalSuperpowers = "",
-  modalSp = "";
+function modalShow(giftId) {
+  const modalWrapper = document.querySelector(".modal-wrapper");
+  const modalWindow = document.querySelector(".modal-window");
+  const modalButton = document.querySelector(".modal-button");
+  let modal = "",
+    modalImg = "",
+    modalCaption = "",
+    modalTag = "",
+    modalName = "",
+    modalDescription = "",
+    modalSuperpowers = "",
+    modalSp = "";
 
-function modalShow(modalId) {
   for (const [key] of gifts) {
-    if (key === modalId) {
+    if (key === giftId) {
       modalWrapper.style.display = "block";
       modalWindow.style.display = "block";
       body.classList.toggle("no-scroll");
@@ -192,7 +192,7 @@ function modalShow(modalId) {
       modalWindow.addEventListener("click", (event) => {
         event.stopPropagation();
       });
-      let giftsContent = gifts.get(modalId).split(";");
+      let giftsContent = gifts.get(giftId).split(";");
 
       // modal close button
       let modalButtonBox = modalWindow.appendChild(document.createElement("div"));
@@ -305,7 +305,7 @@ window.addEventListener("scroll", function () {
   } else {
     scrollButton.style.display = "none";
   }
-  // hide scroll when resize window
+  // hide scroll button when resize window
   window.addEventListener("resize", function () {
     if (window.innerWidth > 768) {
       scrollButton.style.display = "none";
