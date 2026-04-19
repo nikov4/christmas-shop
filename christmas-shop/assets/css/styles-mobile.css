@@ -153,15 +153,23 @@
     cursor: default;
   }
 
-  .slider-button__active:hover {
+  .slider-button:hover {
     background-color: transparent;
     border: 1px solid var(--color-white, #fff);
     cursor: default;
   }
 
-  .slider-button__active:hover svg path {
+  .slider-button:hover svg path {
     border: 1px solid var(--color-white, #fff);
     stroke: var(--color-white, #fff);
+  }
+
+  .slider-button__inactive:hover,
+  .slider-button__inactive:hover svg path {
+    background-color: transparent;
+    border: 1px solid var(--color-white-40, rgba(255, 255, 255, 0.4));
+    stroke: var(--color-white-40, rgba(255, 255, 255, 0.4));
+    cursor: default;
   }
 
   .best-item:hover {
