@@ -358,31 +358,35 @@ function slider() {
 }
 
 // Scroll to top
-const scrollButton = document.querySelector(".scroll-to-top");
-window.addEventListener("scroll", function () {
-  let scrolled = window.scrollY || document.documentElement.scrollTop;
-  if (scrolled >= 300 && window.innerWidth <= 768) {
-    scrollButton.style.display = "flex";
-    scrollButton.addEventListener("click", (event) => {
-      window.scrollY = 0;
-      scrollButton.style.display = "none";
-      window.scrollTo(pageYOffset, 0);
-    });
-  } else {
-    scrollButton.style.display = "none";
-  }
-
-  // hide scroll button when resize window
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 768) {
+function scrollTop() {
+  const scrollButton = document.querySelector(".scroll-to-top");
+  window.addEventListener("scroll", function () {
+    let scrolled = window.scrollY || document.documentElement.scrollTop;
+    if (scrolled >= 300 && window.innerWidth <= 768) {
+      scrollButton.style.display = "flex";
+      scrollButton.addEventListener("click", (event) => {
+        window.scrollY = 0;
+        scrollButton.style.display = "none";
+        window.scrollTo(pageYOffset, 0);
+      });
+    } else {
       scrollButton.style.display = "none";
     }
+
+    // hide scroll button when resize window
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 768) {
+        scrollButton.style.display = "none";
+      }
+    });
   });
-});
+}
 
 // detect current page
 const locationPath = window.location.pathname;
 if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL2026Q1/christmas-shop/gifts.html") {
+  // scroll to top
+  scrollTop();
   // interactions with tabs
   for (let tab of tabs) {
     tab.addEventListener("click", function (event) {
@@ -395,10 +399,10 @@ if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL202
   // get all items
   getItems("All");
 } else {
-  // run timer
-  const timerId = setInterval(Timer, 1000);
   // activate slider
   slider();
+  // run timer
+  const timerId = setInterval(Timer, 1000);
   // get random items
   getItems();
 }
