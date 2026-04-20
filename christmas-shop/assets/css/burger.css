@@ -87,3 +87,7 @@
   letter-spacing: 3.84px;
   text-transform: uppercase;
 }
+
+.burger-item-active {
+  color: var(--color-primary, #ff4646);
+}
