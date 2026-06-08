@@ -181,12 +181,14 @@ function modalShow(giftId) {
       modalWrapper.style.display = "block";
       modalWindow.style.display = "block";
       body.classList.toggle("no-scroll");
+      modalWindow.classList.toggle("modal__active");
 
       modalWrapper.addEventListener("click", function (event) {
         modalWrapper.style.display = "none";
         modalWindow.style.display = "none";
         modalWindow.replaceChildren();
         body.classList.remove("no-scroll");
+        modalWindow.classList.remove("modal__active");
       });
 
       modalWindow.addEventListener("click", (event) => {
@@ -209,6 +211,7 @@ function modalShow(giftId) {
         modalWindow.style.display = "none";
         modalWindow.replaceChildren();
         body.classList.remove("no-scroll");
+        modalWindow.classList.remove("modal__active");
       });
 
       // modal container
