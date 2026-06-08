@@ -387,7 +387,7 @@ function scrollTop() {
 
 // detect current page
 const locationPath = window.location.pathname;
-if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL2026Q1/christmas-shop/gifts.html") {
+if (locationPath === "/gifts.html" || locationPath === "/nikov4-JSFEPRESCHOOL2026Q1/christmas-shop/gifts.html" || locationPath === "/christmas-shop/christmas-shop/gifts.html") {
   // scroll to top
   scrollTop();
   // interactions with tabs
